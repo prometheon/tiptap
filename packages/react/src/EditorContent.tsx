@@ -63,7 +63,11 @@ export class PureEditorContent extends React.Component<EditorContentProps, Edito
 
       editor.contentComponent = this
 
-      editor.createNodeViews()
+      setTimeout(() => {
+        if (!editor.isDestroyed) {
+          editor.createNodeViews()
+        }
+      }, 0)
     }
   }
 
